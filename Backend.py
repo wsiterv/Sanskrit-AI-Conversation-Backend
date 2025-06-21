@@ -8,13 +8,12 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 
 load_dotenv()
-model = whisper.load_model("small")  
-
+model = whisper.load_model("medium")  
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
-
+print(os.getenv("GEMINI_API_KEY"))
 UPLOAD_FOLDER = 'uploads'
 OUTPUT_FOLDER = 'outputs'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
